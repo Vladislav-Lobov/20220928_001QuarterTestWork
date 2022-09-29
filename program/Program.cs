@@ -61,3 +61,22 @@ string[] GetNewArray(int size, string[] inputArray)
     }
     return outputArray;
 }
+
+Console.WriteLine("Введите размер массива");
+bool isNumberSize = int.TryParse(Console.ReadLine(), out int size);
+
+if (isNumberSize == false || size < 1)
+{
+    Console.WriteLine("Некорректный ввод размера массива");
+    return;
+}
+
+string[] firstArray = new string[size];
+firstArray = FillArray(size);
+string[] secondArray = new string[LengthCount(firstArray)];
+secondArray = GetNewArray(LengthCount(firstArray), firstArray);
+Console.WriteLine("Массив на входе:");
+PrintArray(firstArray);
+Console.WriteLine("\nМассив на выходе:");
+PrintArray(secondArray);
+
